@@ -1,7 +1,8 @@
 import React from "react";
+import Sidebar from "../components/Sidebar";
 
 export default function MyClaims() {
     return(
-        <div>my claims</div>
+        <Sidebar />
     )
 }
