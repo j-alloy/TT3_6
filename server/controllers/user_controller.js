@@ -1,4 +1,6 @@
-import User from "..user.js";
+// import User from "..user.js";
+
+const User = require('../models/user');
 
 
 exports.login = async (req, res) => {
