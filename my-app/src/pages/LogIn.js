@@ -45,6 +45,7 @@ export default function SignIn() {
     .then((response) => {
       const res = response.data
       console.log(res)
+      window.location.href = "/myclaims"
     }).catch((error) => {
       if (error.response) {
         console.log(error.response)

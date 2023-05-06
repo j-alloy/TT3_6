@@ -4,6 +4,7 @@ import Button from "@mui/material/Button";
 import Modalform from "../components/Modalform";
 import { Typography } from "@mui/material";
 import { Box } from "@mui/system";
+import Sidebar from "../components/Sidebar";
 
 export default function MyClaims() {
   const [data, setData] = useState([
@@ -35,16 +36,19 @@ export default function MyClaims() {
   };
 
   return (
-    <Box padding={10}>
-      <Box mb={5} display="flex" justifyContent="space-between">
-        <Typography sx={{ color:'white', backgroundColor:'#1976d2', borderRadius: '10px'}} variant="h3">My Claims</Typography>
-        <Button variant="contained" onClick={handleClickOpen}>
-          New Claim
-        </Button>
-      </Box>
+    <div>
+      <Sidebar />
+      <Box padding={10}>
+        <Box mb={5} display="flex" justifyContent="space-between">
+          <Typography sx={{ color:'white', backgroundColor:'#1976d2', borderRadius: '10px'}} variant="h3">My Claims</Typography>
+          <Button variant="contained" onClick={handleClickOpen}>
+            New Claim
+          </Button>
+        </Box>
 
-      <Modalform open={open} setOpen={setOpen} />
-      <ClaimsList data={data} open={open} setOpen={setOpen} />
-    </Box>
+        <Modalform open={open} setOpen={setOpen} />
+        <ClaimsList data={data} open={open} setOpen={setOpen} />
+      </Box>
+    </div>
   );
 }
