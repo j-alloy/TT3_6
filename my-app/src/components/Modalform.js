@@ -173,7 +173,7 @@ export default function FormDialog({ open, setOpen, modalData = null }) {
               Cancel
             </Button>
             <Stack direction="row" spacing={2}>
-              {
+              {modalData && (
                 <Button
                   variant="contained"
                   color="warning"
@@ -181,7 +181,7 @@ export default function FormDialog({ open, setOpen, modalData = null }) {
                 >
                   delete
                 </Button>
-              }
+              )}
               <Button variant="contained" onClick={handleClose}>
                 {modalData ? "Confirm" : "Create Claim"}
               </Button>
