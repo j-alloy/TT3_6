@@ -1,13 +1,10 @@
 import express from "express"
-import db from "../db/conn.js"
+import { getClaims, createClaims } from "../controllers/claims.js"
 
 const router = express.Router()
 
-router.get("/", async (req, res) => {
-    let collection = await db.collection("projectexpenseclaims")
-    let results = await collection.find({}).toArray()
 
-    res.send(results).status(200)
-})
+router.get("/", getClaims)
+router.post("/", createClaims)
 
 export default router
