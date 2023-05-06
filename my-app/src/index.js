@@ -1,7 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
+import LogIn from "./pages/LogIn"
+import NotFound from './pages/NotFound';
+import MyClaims from './pages/MyClaims';
+import Approvals from './pages/Approvals';
 import reportWebVitals from './reportWebVitals';
 import {
 	createBrowserRouter,
@@ -11,16 +14,16 @@ import {
 const router = createBrowserRouter([
 	{
 		path: "/",
-		element: <Home />,
+		element: <LogIn />,
 		errorElement: <NotFound />
 	},
 	{
-		path: "login",
-		element: <Login />
+		path: "myclaims",
+		element: <MyClaims />
 	},
 	{
-		path: "dashboard",
-		element: <Contact />
+		path: "approvals",
+		element: <Approvals />
 	}
 ]);
 

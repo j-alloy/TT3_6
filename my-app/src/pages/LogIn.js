@@ -12,6 +12,7 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import axios from "axios";
 
 function Copyright(props) {
   return (
@@ -36,6 +37,18 @@ export default function SignIn() {
       email: data.get('email'),
       password: data.get('password'),
     });
+    axios({
+      method: "get",
+      url:"http://localhost:5000/",
+    })
+    .then((response) => {
+      const res = response.data
+      console.log(res)
+    }).catch((error) => {
+      if (error.response) {
+        console.log(error.response)
+        }
+    })
   };
 
   return (
@@ -61,10 +74,10 @@ export default function SignIn() {
               margin="normal"
               required
               fullWidth
-              id="email"
-              label="Email Address"
-              name="email"
-              autoComplete="email"
+              id="userid"
+              label="User ID"
+              name="userid"
+              autoComplete="User-ID"
               autoFocus
             />
             <TextField
@@ -89,18 +102,6 @@ export default function SignIn() {
             >
               Sign In
             </Button>
-            <Grid container>
-              <Grid item xs>
-                <Link href="#" variant="body2">
-                  Forgot password?
-                </Link>
-              </Grid>
-              <Grid item>
-                <Link href="#" variant="body2">
-                  {"Don't have an account? Sign Up"}
-                </Link>
-              </Grid>
-            </Grid>
           </Box>
         </Box>
         <Copyright sx={{ mt: 8, mb: 4 }} />
