@@ -4,7 +4,7 @@ import './index.css';
 import LogIn from "./pages/LogIn"
 import NotFound from './pages/NotFound';
 import MyClaims from './pages/MyClaims';
-import Modalform from './components/Modalform';
+import Approvals from './pages/Approvals';
 import reportWebVitals from './reportWebVitals';
 import {
 	createBrowserRouter,
@@ -22,8 +22,8 @@ const router = createBrowserRouter([
 		element: <MyClaims />
 	},
 	{
-		path: "test",
-		element: <Modalform />
+		path: "approvals",
+		element: <Approvals />
 	}
 ]);
 
