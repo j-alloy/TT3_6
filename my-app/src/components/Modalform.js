@@ -13,6 +13,7 @@ import MenuItem from "@mui/material/MenuItem";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+import axios from "axios";
 
 const currencies = [
   {
@@ -33,13 +34,19 @@ const currencies = [
   },
 ];
 
-export default function FormDialog({ open, setOpen, modalData = null }) {
+export default function FormDialog({
+  open,
+  setOpen,
+  modalData = null,
+  setLoad,
+  load,
+}) {
   // const [open, setOpen] = React.useState(false);
 
   // const handleClickOpen = () => {
   //   setOpen(true);
   // };
-
+  const [data, setData] = React.useState({});
   const handleClose = () => {
     setOpen(false);
   };
@@ -49,7 +56,25 @@ export default function FormDialog({ open, setOpen, modalData = null }) {
     }
   }, [modalData]);
 
-  const [data, setData] = React.useState({});
+  const handleCreate = () => {
+    axios({
+      method: "post",
+      url: "http://localhost:4000/projectexpenseclaims",
+      data,
+      headers: { "Content-Type": "application/json" },
+    })
+      .then((response) => {
+        const res = response.data;
+        console.log(res);
+      })
+      .catch((error) => {
+        if (error.response) {
+          console.log(error.response);
+        }
+      });
+
+    setLoad(!load);
+  };
 
   const handleChange = (event) => {
     let temp = data;
@@ -144,7 +169,7 @@ export default function FormDialog({ open, setOpen, modalData = null }) {
                 label="Claim Amount"
                 name="claim_amount"
                 autoFocus
-                value={data.amount}
+                value={data.claimAmount}
                 onChange={handleChange}
               />
             </Grid>
