@@ -44,7 +44,9 @@ export default function MyClaims() {
       .then((response) => {
         const res = response.data;
         console.log(res);
-        setData(res);
+        if (res.length > 0) {
+          setData(res);
+        }
       })
       .catch((error) => {
         if (error.response) {
