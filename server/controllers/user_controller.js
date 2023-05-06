@@ -1,9 +1,9 @@
 // import User from "..user.js";
 
-const User = require('../models/User');
+import {User} from "../models/User.js";
 
 
-exports.login = async (req, res) => {
+export const login = async (req, res) => {
     const { email, password } = req.body;
   
     try {
