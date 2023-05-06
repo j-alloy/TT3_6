@@ -21,7 +21,7 @@ app.use(express.json())
 
 app.use("/employee", employee)
 
-app.listen(5000, () => {
+app.listen(4000, () => {
   console.log(`Server Running on Port ${PORT}`);
 });
 
