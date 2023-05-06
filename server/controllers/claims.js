@@ -17,15 +17,15 @@ export const createClaims = async (req, res) => {
 };
 
 export const updateClaims = async (req, res) => {
-    const {claimID} = req.body.claimID
-    const query = { ClaimID: (claimID) };
+    const {claimID} = req.body
+    // console.log(claimID)
+    const query = { claimID: (claimID) };
     const updates = {
     $push: {
         firstName: req.body.firstName,
         lastName: req.body.lastName,
         date: req.body.date,
         purpose: req.body.purpose,
-        claimAmount: req.body.claimAmount,
         currency: req.body.currency
     }
     };
