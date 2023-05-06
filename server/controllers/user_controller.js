@@ -2,7 +2,6 @@
 
 import {User} from "../models/User.js";
 import db from '../db/conn.js';
-import bcrypt from "bcrypt"
 
 const usersCollection = db.collection('employee');
 
@@ -18,8 +17,7 @@ export const login = async (req, res) => {
       //   password,
       //   user.Password
       // )
-      const isPasswordCorrect = password===user.Password
-      if (!user || !isPasswordCorrect) {
+      if (!user || !(password===user.Password)) {
         return res.status(401).json({ error: 'Invalid email or password' });
       }
       res.json({ "EmployeeID": EmployeeID });
