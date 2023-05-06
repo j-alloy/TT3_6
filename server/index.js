@@ -4,6 +4,7 @@ import "./loadEnvironment.js"
 import employee from "./routes/employee.js"
 import {login} from "./controllers/user_controller.js";
 import bodyParser from "body-parser";
+import db from "./db/conn.js";
 
 const PORT = process.env.PORT || 5000;
 const app = express();
