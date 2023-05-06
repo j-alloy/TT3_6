@@ -37,7 +37,7 @@ export default function MyClaims() {
   return (
     <Box padding={10}>
       <Box mb={5} display="flex" justifyContent="space-between">
-        <Typography variant="h3">My Claims</Typography>
+        <Typography sx={{ color:'white', backgroundColor:'#1976d2', borderRadius: '10px'}} variant="h3">My Claims</Typography>
         <Button variant="contained" onClick={handleClickOpen}>
           New Claim
         </Button>
