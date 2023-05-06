@@ -7,6 +7,7 @@ exports.login = async (req, res) => {
     try {
       // Find the user with the specified EmployeeID
       const user = await User.findOne({ EmployeeID });
+      
   
       // If the user doesn't exist or the password is incorrect, send an error response
       if (!user || !user.comparePassword(password)) {
