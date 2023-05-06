@@ -37,9 +37,9 @@ export default function MyClaims() {
   return (
     <Box padding={10}>
       <Box mb={5} display="flex" justifyContent="space-between">
-        <Typography variant="h2">My Claims</Typography>
-        <Button variant="outlined" onClick={handleClickOpen}>
-          Open form dialog
+        <Typography variant="h3">My Claims</Typography>
+        <Button variant="contained" onClick={handleClickOpen}>
+          New Claim
         </Button>
       </Box>
 

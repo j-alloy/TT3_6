@@ -6,6 +6,7 @@ import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
+import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import Stack from "@mui/material/Stack";
 import MenuItem from "@mui/material/MenuItem";
@@ -94,6 +95,7 @@ export default function FormDialog({ open, setOpen, modalData = null }) {
                 onChange={handleChange}
               />
             </Grid>
+
             <Grid item xs={12} sm={6}>
               <TextField
                 autoComplete="family-name"
@@ -166,19 +168,25 @@ export default function FormDialog({ open, setOpen, modalData = null }) {
           </Grid>
         </DialogContent>
         <DialogActions>
-          <Stack
-            spacing={2}
-            direction="row"
-            alignItems="center"
-            justify="center"
-          >
-            <Button variant="contained" onClick={handleClose}>
+          <Box display="flex" width="100%" justifyContent="space-between">
+            <Button variant="outlined" onClick={handleClose}>
               Cancel
             </Button>
-            <Button variant="contained" onClick={handleClose}>
-              Create Claim
-            </Button>
-          </Stack>
+            <Stack direction="row" spacing={2}>
+              {
+                <Button
+                  variant="contained"
+                  color="warning"
+                  onClick={handleClose}
+                >
+                  delete
+                </Button>
+              }
+              <Button variant="contained" onClick={handleClose}>
+                {modalData ? "Confirm" : "Create Claim"}
+              </Button>
+            </Stack>
+          </Box>
         </DialogActions>
       </Dialog>
     </div>
