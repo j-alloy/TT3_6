@@ -4,6 +4,7 @@ import './index.css';
 import LogIn from "./pages/LogIn"
 import NotFound from './pages/NotFound';
 import MyClaims from './pages/MyClaims';
+import Modalform from './components/Modalform';
 import reportWebVitals from './reportWebVitals';
 import {
 	createBrowserRouter,
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
 	{
 		path: "myclaims",
 		element: <MyClaims />
+	},
+	{
+		path: "test",
+		element: <Modalform />
 	}
 ]);
 
