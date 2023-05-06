@@ -20,7 +20,12 @@ const ClaimsList = ({ data }) => {
               styles[`claims__item--${(index + 1) % 2 == 0 ? "even" : "odd"}`]
             }`}
           >
-            {item}
+            <div>{item.date}</div>
+            <div>{item.claimId}</div>
+            <div>{item.purpose}</div>
+            <div>{item.amount}</div>
+            <div>{item.currency}</div>
+            <div>{item.status}</div>
           </div>
         ))}
       </div>
