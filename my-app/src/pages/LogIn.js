@@ -34,12 +34,17 @@ export default function SignIn() {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     console.log({
-      email: data.get('email'),
+      userid: data.get('userid'),
       password: data.get('password'),
     });
     axios({
-      method: "get",
-      url:"http://localhost:5000/",
+      method: "post",
+      url: "http://localhost:4000/login",
+      data: {
+        "EmployeeID": data.get('userid'),
+        "password": data.get('password'),
+      },
+      headers: { "Content-Type": "application/json" },
     })
     .then((response) => {
       const res = response.data

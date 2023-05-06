@@ -28,7 +28,7 @@ app.use("/projectexpenseclaims", projectexpenseclaims)
 app.use("/currency", currency)
 app.use("/department", department)
 
-app.listen(5000, () => {
+app.listen(4000, () => {
   console.log(`Server Running on Port ${PORT}`);
 });
 
